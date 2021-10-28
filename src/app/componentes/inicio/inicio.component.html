@@ -1,0 +1,23 @@
+<ul>
+    <div class="noticias-destacadas">
+    <li class="noticias" *ngFor="let noticia of ListaNoticias">
+        <div  class="noticia-destacada" *ngIf="noticia.destacada==true">
+            <img class="imagen-destacada" src='../../../assets/{{noticia.imagen}}' alt='{{noticia.imagen}}'>
+            <h2><span [ngClass]="{azul:noticia.idCategoria==1, rojooscuro:noticia.idCategoria==2, verde:noticia.idCategoria==3}" >{{noticia.titulo}}</span></h2>
+            <p class="texto">{{noticia.texto}}</p>
+            <button [ngClass]="{bazul:noticia.idCategoria==1, brojooscuro:noticia.idCategoria==2, bverde:noticia.idCategoria==3}" [routerLink]="['/detalleNoticia',noticia.id]" routerLinkActive="router-link-active">Leer más</button>
+        </div>
+    </li>
+    </div>
+    <div class="noticias-normales">
+        <li class="noticias" *ngFor="let noticia of ListaNoticias">
+            <div  class="noticia-normal" *ngIf="noticia.destacada==false">
+                <img class="imagen-normal" src='../../../assets/{{noticia.imagen}}' alt='{{noticia.imagen}}'>
+                <h2 class="titulo">{{noticia.titulo}}</h2>
+                <p class="texto">{{noticia.texto}}</p>
+                <button class="boton-normal" [routerLink]="['/detalleNoticia',noticia.id]" routerLinkActive="router-link-active">Leer más</button>
+            </div>
+        </li>
+        </div>
+
+</ul>
